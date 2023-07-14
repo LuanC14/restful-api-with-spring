@@ -1,8 +1,6 @@
 package br.com.erudio.restful_with_spring.controllers;
 
-import br.com.erudio.restful_with_spring.exceptions.UnsupportedMathOperationException;
 import br.com.erudio.restful_with_spring.services.MathService;
-import br.com.erudio.restful_with_spring.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
