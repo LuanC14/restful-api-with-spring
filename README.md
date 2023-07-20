@@ -7,6 +7,7 @@ Essa API está sendo desenvolvida durante o curso *REST API's RESTFul do 0 à AW
 - Spring Boot 3.1.1
 - Spring Security
 - Rest Assured
+- DozerMapper
 - JSON Web TOken
 - MySQL
 - Hibernate JPA

@@ -1,6 +1,6 @@
-package br.com.erudio.restful_with_spring.utils;
+package br.com.erudio.restful_with_spring.utils.other;
 
-public class Utils {
+public class MathTools {
 
     public static Double convertToDouble(String strNumber) {
         if (strNumber == null) return 0D;
