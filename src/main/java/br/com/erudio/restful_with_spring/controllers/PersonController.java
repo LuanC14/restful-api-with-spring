@@ -1,7 +1,6 @@
 package br.com.erudio.restful_with_spring.controllers;
 
 import br.com.erudio.restful_with_spring.VO.v1.PersonVO;
-import br.com.erudio.restful_with_spring.VO.v2.PersonVOV2;
 import br.com.erudio.restful_with_spring.services.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,19 +16,20 @@ public class PersonController {
     @Autowired
     private PersonService personService;
 
-    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/{id}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, "application/x-yaml"})
     public ResponseEntity<PersonVO> findById(@PathVariable(value = "id") Long id) {
         PersonVO person = personService.findById(id);
         return ResponseEntity.ok().body(person);
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, "application/x-yaml"})
     public ResponseEntity<List<PersonVO>> findAll() {
         List<PersonVO> persons = personService.findAll();
         return ResponseEntity.ok().body(persons);
     }
 
-    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, "application/x-yaml"},
+            consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, "application/x-yaml"})
     public ResponseEntity<PersonVO> create(@RequestBody PersonVO personVO) {
         PersonVO person = personService.createPerson(personVO);
 
@@ -42,7 +42,7 @@ public class PersonController {
 //        return ResponseEntity.status(HttpStatus.CREATED).body(person);
 //    }
 
-    @PutMapping(value = "/update", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/update", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, "application/x-yaml"})
     public ResponseEntity<PersonVO> update(@RequestBody PersonVO personVO) {
         PersonVO person = personService.updatePerson(personVO);
         return ResponseEntity.ok().body(person);
